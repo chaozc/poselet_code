@@ -1,1 +1,26 @@
-Code of Poselet work
+Poselet work
+================================
+[File]seeds: 
+	each line represents a seed patch, in the form of imgID#posInfo#cnt#kps#
+	posInfo: [stx, sty, szx, szy] represents the sub-patch, the left corner of which is (stx, sty), and the size is (szx, szy)
+	cnt: number of key points in the patch
+	kps: the relative coordinates of key points in the patch
+[Dir]seed_patches:
+	all the seed patches extracted from images
+[Dir]candidates:
+	candidate patches in each image, the form of each file is the same as the form of 'seeds'
+[Dir]collected_list:
+	each file corresponds to the list of the closest candidate patches(the closest in each image) to each seed patch
+	each line is in the form of imgID#posInfo#cnt#kps#scores
+	scores:[dp, dv, d] corresponds the distance
+[Dir]Sample:
+	sample of the poselet training set
+[Dir]img_no_dup:
+	images with no duplications
+[Dir]good:
+	label jsons
+
+
+================================
+Python:
+	See README in python
