@@ -1,1 +1,25 @@
 python files
+=========================
+config.json:
+	configuration of the file and direction name
+generate_seed.py:
+	usage: python generate_seed.py num
+	generate [num] seeds to [seed_file]
+extract_patch.py:
+	usage: python extract_patch.py infile odir num
+	extract the first [num] patches described in [infile] to [odir]
+generate_candidate.py
+	usage: python generate_candidate.py bsz
+	generate candidate patches in images, try to put the left corner of the patch in [bsz*bsz] grid
+collect_patches.py:
+	usage: python collect_patches.py lambda
+	calculate the distance with the parameter lambda between seeds and candidates, and output the list of training patches corresponding to each seed to [collected_list_dir]
+show_top.py:
+	usage: python show_top.py [num]
+	show the top [num] training patches for each seeds
+seed_analysis.py:
+	usage: python seed_analysis.py
+	show the distribution of seeds
+poseletFunc.py:
+	a list of useful patch
+others: tools

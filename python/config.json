@@ -1,0 +1,10 @@
+{
+	"img_dir": "../img_no_dup",
+	"json_dir": "../good",
+	"candidate_dir": "../candidates",
+	"seed_file": "../seeds",
+	"seed_patches_dir": "../seed_patches",
+	"collected_list_dir":"../collected_list",
+	"sample_dir":"../sample",
+	"draw_kp_in_patches": "True"
+}
