@@ -1,1 +1,8 @@
 MATLAB files
+
+run '../matlab/vlfeat-0.9.20/toolbox/vl_setup'
+
+get_HOG_seed_set(hogDir, imgDir, seed_sample_Dir):
+hogDir: directory of output hog files 
+imgDir: directory of raw images
+seed_sample_Dir: directory of files which list the images whose features are to be extracted (*.sample)

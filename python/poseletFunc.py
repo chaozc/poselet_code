@@ -47,13 +47,15 @@ def patch_info(jsondir, imgID, stx, sty, xsz, ysz):
 				bottom = max(right, kp[1])
 	return kps, cnt, left, right, top, bottom
 
-def random_patch(jsondir, imgID, rand_stx, rand_sty, rand_sz, w, h):
+def random_patch(imgID, rand_stx, rand_sty, rand_sz, w, h, jsondir=None):
 	stx = np.random.randint(rand_stx[0], rand_stx[1])
 	sty = np.random.randint(rand_sty[0], rand_sty[1])
 	sz = np.random.randint(rand_sz[0], rand_sz[1])
 	xsz = sz*16
 	ysz = sz*24
 	if (stx+xsz < w) and (sty+ysz < h):
+		if jsondir == None:
+			return imgID+'#'+str([stx, sty, xsz, ysz])+'#0#0#'
 		kps, cnt, left, right, top, bottom = patch_info(jsondir, imgID, stx, sty, xsz, ysz)
 		if kps == False:
 			return False
@@ -101,6 +103,21 @@ def extract_patch(line, odir, conf):
 	fname += '.jpg'
 	cv2.imwrite(fname, patch)
 
+def extract_patches(conf, listfile, odir, no=None):
+	inf = open(listfile, 'r')
+	lines = inf.readlines()
+	inf.close()
+	cnt = 0
+	tot = len(lines)
+	if no == None:
+		no = tot+1
+	for line in lines:
+		extract_patch(line, odir, conf)
+		cnt += 1
+		print cnt, '/', tot, 'patches extracted'
+		if cnt == no:
+			break
+
 def calculate_dis(kps1, kps2):
 	ckps1 = []
 	ckps2 = []
@@ -116,7 +133,25 @@ def calculate_dis(kps1, kps2):
 	Dp = Procrustes_distance()(ckps1, ckps2, intersection)
 	Dv = float(intersection)/union
 	return Dp, Dv
-	
+
+def kp_config_id(kps):
+	kpConfID = ''
+	for kp in kps:
+		if kp != False:
+			kpConfID += '1'
+		else:
+			kpConfID += '0'
+	return kpConfID 
+
+def top_lines(fname, n):
+	inf = open(fname, 'r')
+	lines = inf.readlines()
+	inf.close()
+	try:
+		return lines[:n]
+	except:
+		return []
+
 class Procrustes_distance:
 	def __init__(self):
 		self.yes = True

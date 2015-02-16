@@ -22,7 +22,7 @@ if __name__ == "__main__":
 		fname = config['img_dir']+'/'+imgID+'.jpg'
 		img = cv2.imread(fname)
 		h, w, d = img.shape
-		out_line = random_patch(config['json_dir'], imgID, [1, w], [1, h], [4, 15], w, h)
+		out_line = random_patch(imgID, [1, w], [1, h], [4, 15], w, h, config['json_dir'])
 		if out_line == False:
 			continue
 		i += 1

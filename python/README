@@ -20,6 +20,15 @@ show_top.py:
 seed_analysis.py:
 	usage: python seed_analysis.py
 	show the distribution of seeds
+cluster_seeds.py:
+	usage: python cluster_seeds.py
+	cluster the seeds with similar keypoints configurations into seed sets
+get_top_samples.py:
+	usage: python get_top_samples.py [n]
+	obtain the top n samples of each seed in each seed set, without duplication
+generate_neg.py:
+	usage: python generate_neg.py
+	generate negative windows
 poseletFunc.py:
 	a list of useful patch
 others: tools

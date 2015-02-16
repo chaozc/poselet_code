@@ -4,7 +4,12 @@
 	"candidate_dir": "../candidates",
 	"seed_file": "../seeds",
 	"seed_patches_dir": "../seed_patches",
+	"seed_set_file_dir": "../seed_set",
+	"seed_set_patches_dir": "../seed_set_patches",
+	"seed_set_sample_dir": "../seed_set_sample",
 	"collected_list_dir":"../collected_list",
 	"sample_dir":"../sample",
-	"draw_kp_in_patches": "True"
+	"draw_kp_in_patches": "True",
+	"neg_seed_img_dir":"../INRIAPerson/train_64x128_H96/neg",
+	"neg_seed_file":"../neg_seed"
 }

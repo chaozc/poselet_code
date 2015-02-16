@@ -26,7 +26,7 @@ if __name__ == "__main__":
 			for i in range(bsz):
 				for j in range(bsz):
 					for k in range(500):
-						out_line = random_patch(conf['json_dir'], imgID, [i*xbin, (i+1)*xbin], [j*ybin, (j+1)*ybin], [4, 15], w, h)
+						out_line = random_patch(imgID, [i*xbin, (i+1)*xbin], [j*ybin, (j+1)*ybin], [4, 15], w, h, conf['json_dir'])
 						if out_line != False:
 							cntPatch += 1
 							ouf.write(out_line+'\n')
